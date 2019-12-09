@@ -11,6 +11,7 @@ django.setup()
 
 from app01 import models
 
+# https://www.cnblogs.com/maple-shaw/articles/9414626.html
 # 查找所有书名里包含金老板的书
 ret = models.Book.objects.filter(title__contains='金老板')
 # print(ret)
