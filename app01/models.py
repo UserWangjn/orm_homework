@@ -1,21 +1,21 @@
 from django.db import models
 
-# Êé
+# ä¹¦
 class Book(models.Model):
     title = models.CharField(max_length=32)
     publish_date = models.DateField(auto_now_add=True)
     price = models.DecimalField(max_digits=5, decimal_places=2)
     memo = models.TextField(null=True)
-    # ´´½¨Íâ¼ü£¬¹ØÁªpublish
+    # åˆ›å»ºå¤–é”®ï¼Œå…³è”publish
     publisher = models.ForeignKey(to="Publisher",on_delete=models.CASCADE)
-    # ´´½¨¶à¶Ô¶à¹ØÁªauthor
+    # åˆ›å»ºå¤šå¯¹å¤šå…³è”author
     author = models.ManyToManyField(to="Author")
 
     def __str__(self):
         return "<Book object: {} {}>".format(self.id, self.title)
 
 
-# ³ö°æÉç
+# å‡ºç‰ˆç¤¾
 class Publisher(models.Model):
     name = models.CharField(max_length=32)
     city = models.CharField(max_length=32)
@@ -24,7 +24,7 @@ class Publisher(models.Model):
         return "<Publisher object: {} {}>".format(self.id, self.name)
 
 
-# ×÷Õß
+# ä½œè€…
 class Author(models.Model):
     name = models.CharField(max_length=32)
     age = models.IntegerField()
