@@ -54,6 +54,8 @@ ret = models.Book.objects.filter(publisher__name='沙河出版社')
 ret = models.Publisher.objects.annotate(Max('book__price')).values()
 # print(ret)
 # 查找每个出版社的名字以及出的书籍数量
+# 分组：annotate
+# 聚合：aggregate
 ret = models.Publisher.objects.annotate(book_count=Count('book__id')).values('book_count','name')
 # print(ret)
 # 查找作者名字里面带“小”字的作者
